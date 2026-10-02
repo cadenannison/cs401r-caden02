@@ -1,0 +1,37 @@
+(.venv) (base) cadenannison@MacBook-Air-504 cs401r-caden02 % mkdir -p docs/evidence
+B=northstar-dev-data-338658063899
+
+aws sagemaker describe-domain --domain-id d-rhpqflvkwkx2 \
+  --query '{Status:Status,Subnets:SubnetIds,Net:AppNetworkAccessType}' | tee docs/evidence/domain.txt
+aws ec2 describe-nat-gateways --filter Name=state,Values=available \
+  --query 'NatGateways[].{Id:NatGatewayId,State:State,Subnet:SubnetId}' | tee docs/evidence/nat.txt
+aws iam list-roles --query "Roles[?contains(RoleName,'northstar-dev')].RoleName" | tee docs/evidence/roles.txt
+aws s3api get-bucket-lifecycle-configuration --bucket $B \
+  --query 'Rules[].ID' | tee docs/evidence/lifecycle.txt
+{
+    "Status": "InService",
+    "Subnets": [
+        "subnet-0fe0df2a1182e9118"
+    ],
+    "Net": "VpcOnly"
+}
+[
+    {
+        "Id": "nat-0a38bc9a549d4b9c8",
+        "State": "available",
+        "Subnet": "subnet-0ca8677ef496be20f"
+    }
+]
+[
+    "northstar-dev-DataEngineer",
+    "northstar-dev-MLEngineer",
+    "northstar-dev-ModelMonitor"
+]
+[
+    "expire-raw-data",
+    "expire-raw-versions",
+    "expire-processed-versions",
+    "expire-feature-versions",
+    "expire-datacapture"
+]
+(.venv) (base) cadenannison@MacBook-Air-504 cs401r-caden02 % 

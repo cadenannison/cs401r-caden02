@@ -10,7 +10,7 @@
 
 INFRA_DIR   ?= infrastructure
 LOCAL_ENV    = $(INFRA_DIR)/environments/local
-LOCAL_OUT   ?= docs/lab1b-localstack-output.txt
+LOCAL_OUT   ?= docs/lab1/lab1b-localstack-output.txt
 
 .PHONY: local-validate local-destroy local-clean
 

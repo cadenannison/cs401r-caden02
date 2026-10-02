@@ -45,17 +45,17 @@ Task 3 - Feature Store (20 pts)
   PASS  GetRecord returns a record                           16 features
 
 Tasks 4 and 5 - Deliverables and repo quality (30 pts)
-  FAIL  docs/lab2-data-contract.md present                   missing
-  FAIL  docs/lab2-data-lineage.png present                   missing
+  PASS  docs/lab2-data-contract.md present                   
+  PASS  docs/lab2-data-lineage.png present                   
   PASS  docs/lab2-extend-output.txt present                  
   PASS  infrastructure/modules/glue/main.tf present          
   PASS  infrastructure/modules/feature_store/main.tf present 
   PASS  extend output shows Apply complete                   
-  FAIL  data contract has Schema section                     missing
-  FAIL  data contract has Quality Guarantee section          missing
-  FAIL  data contract has SLA section                        missing
-  FAIL  data contract has Versioning section                 missing
+  PASS  data contract has Schema section                     
+  PASS  data contract has Quality Guarantee section          
+  PASS  data contract has SLA section                        
+  PASS  data contract has Versioning section                 
   PASS  terraform fmt clean                                  
 
-Summary: 41 passed, 6 failed
-Fix the FAIL items above before submitting.
+Summary: 47 passed, 0 failed
+All checks passed. Remember to run scripts/teardown-lab2.sh after you submit.

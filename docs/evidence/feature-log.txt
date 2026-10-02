@@ -1,0 +1,9 @@
+[features] read 157627 processed transaction rows
+	[features] observation window (<= 2026-04-01): 130189 rows
+	[features] holdout window (2026-04-01 to 2026-06-30): 27438 rows
+	[features] computed features for 9999 customers
+	[features] churn_label rate: 22.0%
+	[features] tier distribution present: ['Bronze', 'Gold', 'Platinum', 'Silver']
+	[features] wrote 9999 rows to s3://northstar-dev-data-338658063899/features/customers/
+	[features] ingested 9999 records into northstar-dev-customer-features at event_time 1790973349.0
+

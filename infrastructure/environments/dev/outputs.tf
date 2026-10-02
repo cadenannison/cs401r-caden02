@@ -26,3 +26,43 @@ output "sagemaker_domain_id" {
   description = "ID of the SageMaker Domain"
   value       = module.sagemaker.domain_id
 }
+
+output "private_subnet_id" {
+  description = "ID of the private subnet"
+  value       = module.vpc.private_subnet_id
+}
+
+output "data_engineer_role_arn" {
+  description = "ARN of the DataEngineer role"
+  value       = module.iam.data_engineer_role_arn
+}
+
+output "model_monitor_role_arn" {
+  description = "ARN of the ModelMonitor role"
+  value       = module.iam.model_monitor_role_arn
+}
+
+output "database_name" {
+  description = "Name of the Glue catalog database"
+  value       = module.glue.database_name
+}
+
+output "crawler_name" {
+  description = "Name of the Glue crawler that registers raw customer data"
+  value       = module.glue.crawler_name
+}
+
+output "transform_job_name" {
+  description = "Name of the Glue transform job"
+  value       = module.glue.transform_job_name
+}
+
+output "feature_group_name" {
+  description = "Name of the SageMaker feature group"
+  value       = module.feature_store.feature_group_name
+}
+
+output "feature_engineer_job_name" {
+  description = "Name of the Glue feature-engineer job"
+  value       = module.glue.feature_engineer_job_name
+}

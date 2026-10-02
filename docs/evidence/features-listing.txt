@@ -1,0 +1,2 @@
+2026-10-02 14:35:53     158131 features/customers/part-00000-0761ca18-1101-4047-b669-055a513a0237-c000.snappy.parquet
+2026-10-02 14:35:53     158835 features/customers/part-00001-0761ca18-1101-4047-b669-055a513a0237-c000.snappy.parquet

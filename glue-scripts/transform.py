@@ -63,8 +63,49 @@ def cast_types(df):
     key for every downstream feature, so a row without it cannot be
     attributed to anyone.
     """
-    # TODO: your implementation here
-    raise NotImplementedError("cast_types is not implemented")
+    spark = df.sparkSession
+    # yyyy-MM-dd and MM/dd/yyyy both parse under CORRECTED without raising on
+    # the mismatched format; LEGACY/EXCEPTION policies can throw instead.
+    spark.conf.set("spark.sql.legacy.timeParserPolicy", "CORRECTED")
+
+    df = df.select(*SCHEMA.keys())
+    for col in SCHEMA:
+        # cast to string first so trim/empty-string handling is uniform
+        # regardless of the column's eventual target type.
+        df = df.withColumn(col, F.trim(F.col(col).cast("string")))
+        df = df.withColumn(
+            col, F.when(F.col(col) == "", None).otherwise(F.col(col))
+        )
+
+    # try ISO first, then US format; to_date returns null rather than
+    # raising on a mismatch, so coalesce picks whichever one parsed.
+    df = df.withColumn(
+        "purchase_date",
+        F.coalesce(
+            F.to_date(F.col("purchase_date"), "yyyy-MM-dd"),
+            F.to_date(F.col("purchase_date"), "MM/dd/yyyy"),
+        ),
+    )
+
+    for col, dtype in SCHEMA.items():
+        if col == "purchase_date":
+            continue
+        if dtype == "int":
+            # cast through double first: a string like "3.0" fails a direct
+            # cast to int but succeeds through double.
+            df = df.withColumn(col, F.col(col).cast("double").cast("int"))
+        elif dtype == "double":
+            df = df.withColumn(col, F.col(col).cast("double"))
+        # strings are already strings after the trim/empty-string pass above
+
+    df = df.filter(F.col("customer_id").isNotNull())
+
+    before_date_filter = df.count()
+    df = df.filter(F.col("purchase_date").isNotNull())
+    dropped = before_date_filter - df.count()
+    print(f"[transform] dropped {dropped} rows with unparseable purchase_date")
+
+    return df.select(*SCHEMA.keys())
 
 
 def impute_nulls(df):
@@ -79,8 +120,21 @@ def impute_nulls(df):
 
     Numeric columns: NUMERIC_COLS.  String columns: STRING_COLS.
     """
-    # TODO: your implementation here
-    raise NotImplementedError("impute_nulls is not implemented")
+    int_cols = {c for c, t in SCHEMA.items() if t == "int"}
+    for col in NUMERIC_COLS:
+        median = df.approxQuantile(col, [0.5], 0.0)
+        if not median:
+            raise ValueError(f"approxQuantile returned no median for {col}")
+        value = median[0]
+        if col in int_cols:
+            value = round(value)
+        print(f"[transform] imputing {col} nulls with median {value}")
+        df = df.fillna({col: value})
+
+    for col in STRING_COLS:
+        df = df.fillna({col: "unknown"})
+
+    return df
 
 
 def deduplicate(df):
@@ -101,8 +155,17 @@ def deduplicate(df):
     A window function with row_number() over a partition by transaction_id
     is the idiomatic approach.
     """
-    # TODO: your implementation here
-    raise NotImplementedError("deduplicate is not implemented")
+    # order_value desc breaks ties when purchase_date is also tied, so
+    # re-running the job on the same input always keeps the same row.
+    window = Window.partitionBy("transaction_id").orderBy(
+        F.col("purchase_date").desc(),
+        F.col("order_value").desc(),
+        F.col("customer_id").asc(),
+    )
+    df = df.withColumn("rn", F.row_number().over(window))
+    df = df.filter(F.col("rn") == 1).drop("rn")
+
+    return df
 
 
 def main():

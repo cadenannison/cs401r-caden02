@@ -1,0 +1,9 @@
+[transform] read 163255 raw rows from northstar_dev.customers
+	[transform] dropped 0 rows with unparseable purchase_date
+	[transform] after cast_types: 159990 rows (3265 dropped for null customer_id)
+	[transform] imputing order_value nulls with median 141.75
+	[transform] imputing num_items nulls with median 5
+	[transform] after impute_nulls: 159990 rows
+	[transform] after deduplicate: 157627 rows (2363 duplicate transactions removed)
+	[transform] wrote 157627 rows to s3://northstar-dev-data-338658063899/processed/customers/
+

@@ -1,0 +1,4 @@
+2026-10-02 14:20:39     964962 processed/customers/part-00000-008d598c-e142-4b5d-9e0e-a0cdb355fc2e-c000.snappy.parquet
+2026-10-02 14:20:39     965331 processed/customers/part-00001-008d598c-e142-4b5d-9e0e-a0cdb355fc2e-c000.snappy.parquet
+2026-10-02 14:20:39     962087 processed/customers/part-00002-008d598c-e142-4b5d-9e0e-a0cdb355fc2e-c000.snappy.parquet
+2026-10-02 14:20:39     964133 processed/customers/part-00003-008d598c-e142-4b5d-9e0e-a0cdb355fc2e-c000.snappy.parquet

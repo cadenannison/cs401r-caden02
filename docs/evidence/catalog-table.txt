@@ -1,0 +1,13 @@
+--------------------------------
+|           GetTable           |
++-------------------+----------+
+|  transaction_id   |  string  |
+|  customer_id      |  string  |
+|  purchase_date    |  string  |
+|  order_value      |  double  |
+|  num_items        |  bigint  |
+|  payment_method   |  string  |
+|  channel          |  string  |
+|  store_id         |  string  |
+|  product_category |  string  |
++-------------------+----------+

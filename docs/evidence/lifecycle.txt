@@ -1,0 +1,7 @@
+[
+    "expire-raw-data",
+    "expire-raw-versions",
+    "expire-processed-versions",
+    "expire-feature-versions",
+    "expire-datacapture"
+]

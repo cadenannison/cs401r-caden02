@@ -1,0 +1,7 @@
+{
+    "Status": "InService",
+    "Subnets": [
+        "subnet-0fe0df2a1182e9118"
+    ],
+    "Net": "VpcOnly"
+}

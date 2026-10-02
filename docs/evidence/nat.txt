@@ -1,0 +1,7 @@
+[
+    {
+        "Id": "nat-0a38bc9a549d4b9c8",
+        "State": "available",
+        "Subnet": "subnet-0ca8677ef496be20f"
+    }
+]

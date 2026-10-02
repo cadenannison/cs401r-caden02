@@ -1,0 +1,5 @@
+[
+    "northstar-dev-DataEngineer",
+    "northstar-dev-MLEngineer",
+    "northstar-dev-ModelMonitor"
+]

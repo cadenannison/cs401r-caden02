@@ -63,8 +63,9 @@ See `docs/` for supporting evidence, including:
 
 - `lab2-data-contract.md`
 - `lab2-data-lineage.png`
-- `lab2-domain.png`
-- `lab2-featuregroup.png`
+- `docs/evidence/screenshots/lab2-domain.png`
+- `docs/evidence/screenshots/lab2-featuregroup.png`
+- `docs/evidence/screenshots/lab2-nat.png`
 - `lab2-glue-apply-output.txt`
 - `lab2-feature-apply-output.txt`
 - `lab2-verify-output.txt`

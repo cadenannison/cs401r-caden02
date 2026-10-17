@@ -1,0 +1,65 @@
+sagemaker.config INFO - Not applying SDK defaults from location: /opt/homebrew/share/sagemaker/config.yaml
+sagemaker.config INFO - Not applying SDK defaults from location: /Users/cadenannison/Library/Application Support/sagemaker/config.yaml
+/Users/cadenannison/Desktop/School/CS401R/cs401r-project/cs401r-caden02/.venv/lib/python3.14/site-packages/sagemaker/__init__.py:86: SageMakerV2DeprecationWarning: You are using the SageMaker Python SDK v2, which is on path of deprecation. v3 is the actively developed major version.
+See https://github.com/aws/sagemaker-python-sdk/blob/master/migration.md for the migration guide. Set SAGEMAKER_SUPPRESS_V2_WARNING=1 to silence this warning.
+  warn_v2_deprecation()
+You are using the SageMaker Python SDK v2, which is on path of deprecation. v3 is the actively developed major version.
+See https://github.com/aws/sagemaker-python-sdk/blob/master/migration.md for the migration guide. Set SAGEMAKER_SUPPRESS_V2_WARNING=1 to silence this warning.
+============================================================
+NorthStar Churn Prediction — Training Script
+============================================================
+Athena QueryExecutionId: e0f274f1-c7e6-4520-8cf5-bb8300f9c2c6
+Preprocessing 9,999 samples...
+  Positive class rate: 22.0%
+  Feature matrix shape: (9999, 11)
+
+Train: 6,999 | Validation: 3,000
+
+Training XGBoost with params: {
+  "objective": "binary:logistic",
+  "eval_metric": [
+    "logloss",
+    "auc"
+  ],
+  "max_depth": 4,
+  "eta": 0.05,
+  "min_child_weight": 5,
+  "subsample": 0.8,
+  "colsample_bytree": 0.8,
+  "scale_pos_weight": 3.544805194805195,
+  "seed": 42,
+  "verbosity": 1
+}
+[0]	train-logloss:0.68302	train-auc:0.75318	validation-logloss:0.68314	validation-auc:0.74553
+[25]	train-logloss:0.55418	train-auc:0.80033	validation-logloss:0.56088	validation-auc:0.78092
+[50]	train-logloss:0.52160	train-auc:0.80936	validation-logloss:0.53427	validation-auc:0.78243
+[56]	train-logloss:0.51635	train-auc:0.81262	validation-logloss:0.53122	validation-auc:0.78195
+/Users/cadenannison/Desktop/School/CS401R/cs401r-project/cs401r-caden02/churn_training_skeleton.py:569: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "eval_timestamp": datetime.utcnow().isoformat(),
+/Users/cadenannison/Desktop/School/CS401R/cs401r-project/cs401r-caden02/churn_training_skeleton.py:785: UserWarning: [10:57:38] WARNING: /Users/runner/work/xgboost/xgboost/src/c_api/c_api.cc:1553: Saving model in the UBJSON format as default.  You can use a file extension: `json` or `ubj` to choose between formats.
+  model.save_model(model_path)
+/Users/cadenannison/Desktop/School/CS401R/cs401r-project/cs401r-caden02/churn_training_skeleton.py:799: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  "training_date": datetime.utcnow().isoformat(),
+
+── Evaluation Results ──────────────────────────────
+  precision_top10          : 0.7100  (threshold: 0.5000)  ✓ PASS
+  recall_top10             : 0.3227  (threshold: 0.2500)  ✓ PASS
+  auc_lift 95% CI          : [0.0408, 0.0776]  (must exclude 0)  ✓ PASS
+  All thresholds passed ✓
+
+── Slice Evaluation (loyalty_tier) — aggregate recall@10% 0.3227 ──────────
+  Bronze       n= 1071 pos= 361 auc=0.7499 recall=0.4571  
+  Gold         n=  483 pos=  52 auc=0.7502 recall=0.1154  FLAGGED (recall < aggregate - 0.10)
+  Platinum     n=  307 pos=  21 auc=0.8874 recall=0.0952  FLAGGED (recall < aggregate - 0.10)
+  Silver       n= 1139 pos= 226 auc=0.7202 recall=0.1770  FLAGGED (recall < aggregate - 0.10)
+✓ Plots written to /tmp/explore
+🏃 View run xgb-shallow-slow at: https://mlflow.sagemaker.us-east-1.app.aws/#/experiments/1/runs/c99da3aa64124a4da9d2fb1401cfb4e3
+🧪 View experiment at: https://mlflow.sagemaker.us-east-1.app.aws/#/experiments/1
+✓ Run logged to MLflow experiment 'northstar-churn'
+
+✓ Model saved to ./model/model.xgb
+(--register not set; skipping Model Registry)
+
+============================================================
+Training complete. AUC-ROC: 0.7820
+============================================================

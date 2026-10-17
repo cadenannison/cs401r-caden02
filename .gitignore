@@ -13,3 +13,14 @@ __pycache__/
 tfplan
 tfplan
 tfplan
+
+*.pem
+.aws/
+credentials
+*.tfstate.*
+
+tfplan.new
+*.tfplan
+
+model/
+rag/.cache/

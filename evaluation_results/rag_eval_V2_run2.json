@@ -1,0 +1,66 @@
+[
+  {
+    "prompt_version": "V2",
+    "run": 2,
+    "customer_id": "CUST-10000317",
+    "offer": "Enjoy free return shipping on your next Outdoor purchase\u2014as a Gold member, you get free returns on all orders, plus 24-hour early access to our upcoming sale to find gear that fits your needs.",
+    "retrieved_chunk_ids": [
+      "loyalty-program-terms.md#4-tier-benefits-0",
+      "loyalty-program-terms.md#5-1-retention-offers-0",
+      "customer-faq.md#loyalty-0",
+      "loyalty-program-terms.md#3-points-0",
+      "loyalty-program-terms.md#2-3-tier-protection-0"
+    ],
+    "faithfulness": 0.6,
+    "answer_relevancy": 0.5151015423873925,
+    "context_recall": 1.0
+  },
+  {
+    "prompt_version": "V2",
+    "run": 2,
+    "customer_id": "CUST-10000904",
+    "offer": "We'd like to welcome you back with free standard shipping on your next apparel purchase of $75 or more\u2014a Bronze member benefit that makes it easier to refresh your wardrobe with us.",
+    "retrieved_chunk_ids": [
+      "loyalty-program-terms.md#5-1-retention-offers-0",
+      "loyalty-program-terms.md#4-tier-benefits-0",
+      "customer-faq.md#loyalty-0",
+      "return-policy.md#1-1-extended-window-for-platinum-members-0",
+      "loyalty-program-terms.md#5-promotional-offers-0"
+    ],
+    "faithfulness": 0.25,
+    "answer_relevancy": 0.46071032970192,
+    "context_recall": 0.4
+  },
+  {
+    "prompt_version": "V2",
+    "run": 2,
+    "customer_id": "CUST-10000122",
+    "offer": "We'd like to offer you exclusive early access to our Outdoor collection\u2014as a Platinum member, you get 48-hour early access to all sales, and your purchases earn 2\u00d7 points to put toward future orders. This offer is valid for 45 days and can be combined with points redemption to maximize your rewards.",
+    "retrieved_chunk_ids": [
+      "loyalty-program-terms.md#5-1-retention-offers-0",
+      "return-policy.md#1-1-extended-window-for-platinum-members-0",
+      "loyalty-program-terms.md#4-tier-benefits-0",
+      "customer-faq.md#loyalty-0",
+      "loyalty-program-terms.md#5-promotional-offers-0"
+    ],
+    "faithfulness": 0.5714285714285714,
+    "answer_relevancy": 0.29370029827312316,
+    "context_recall": 0.3333333333333333
+  },
+  {
+    "prompt_version": "V2",
+    "run": 2,
+    "customer_id": "CUST-10000588",
+    "offer": "Earn 1.25x points on your next Home purchase and enjoy free standard shipping at $50+, plus you'll receive a $10 birthday reward as a Silver member\u2014all valid for 45 days from today.",
+    "retrieved_chunk_ids": [
+      "loyalty-program-terms.md#5-1-retention-offers-0",
+      "loyalty-program-terms.md#4-tier-benefits-0",
+      "customer-faq.md#loyalty-0",
+      "return-policy.md#1-1-extended-window-for-platinum-members-0",
+      "shipping-policy.md#2-free-shipping-thresholds-0"
+    ],
+    "faithfulness": 0.8,
+    "answer_relevancy": 0.37104385619564034,
+    "context_recall": 0.5
+  }
+]

@@ -69,3 +69,33 @@ See `docs/` for supporting evidence, including:
 - `lab2-glue-apply-output.txt`
 - `lab2-feature-apply-output.txt`
 - `lab2-verify-output.txt`
+
+
+## Lab 3: Model Development
+
+### Prerequisites
+- A SageMaker **MLflow App** named `northstar-mlflow`; its ARN goes in `MLFLOW_APP_ARN`.
+- Python packages: `xgboost scikit-learn pandas pyarrow matplotlib mlflow sagemaker-mlflow boto3 faiss-cpu ragas datasets "langchain-community<0.4" langchain-aws` and `sagemaker>=2.200,<3`.
+
+### Train (Task 1)
+```bash
+export MLFLOW_APP_ARN=arn:aws:sagemaker:us-east-1:<account>:mlflow-app/<app-id>
+python churn_training_skeleton.py \
+  --artifacts-bucket <bucket from terraform output s3_bucket_name> \
+  --run-name xgb-final-shallow-slow \
+  --max-depth 4 --eta 0.05 --num-round 400 \
+  --output-data-dir docs/lab3-evidence --register 2>&1 | tee docs/lab3-evidence/train-final.log
+```
+All hyperparameters are CLI arguments. `--include-risk-score` adds `churn_risk_score` (off by default; used for the ablation). `--register` registers the model as `PendingManualApproval`. `--local-data-path` is for development only; the graded run reads from Athena.
+
+### Evaluate (Track B)
+```
+python evaluation_harness.py  
+```
+Copy the final CSV to `docs/lab3-evidence/rag_eval.csv`. The RAG pipeline is in `rag/offer_pipeline.py` (FAISS, Titan Embeddings v2, Claude Haiku 4.5 via Bedrock).
+
+### Where artifacts land
+- `docs/lab3-evidence/`: `train-final.log`, `evaluation_metrics.json`, `slice-evaluation.csv`, `confusion-matrix.png`, `feature-importance.png`, plus the AWS exports from the evidence script, `rag_eval.csv` and `track-b-examples.md`.
+- `docs/lab3-evaluation-report.md`, `docs/lab3-model-design.md`.
+- Model tarball: `s3://<bucket>/artifacts/models/<timestamp>/model.tar.gz`; registry group `northstar-churn-models`.
+- MLflow runs: experiment `northstar-churn` in the `northstar-mlflow` App.

@@ -1,0 +1,17 @@
+{
+  "ModelPackageGroupName": "northstar-churn-models",
+  "Versions": [
+    {
+      "ModelPackageArn": "arn:aws:sagemaker:us-east-1:338658063899:model-package/northstar-churn-models/1",
+      "ModelPackageVersion": 1,
+      "ModelApprovalStatus": "PendingManualApproval",
+      "CreationTime": "2026-10-17 11:22:57.411000-06:00",
+      "ModelPackageDescription": "Churn model trained 2026-10-17",
+      "CustomerMetadataProperties": {
+        "auc_roc": "0.782",
+        "precision_top10": "0.71",
+        "recall_top10": "0.3227"
+      }
+    }
+  ]
+}

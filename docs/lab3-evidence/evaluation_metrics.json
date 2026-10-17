@@ -1,0 +1,12 @@
+{
+  "auc_roc": 0.782,
+  "precision_top10": 0.71,
+  "recall_top10": 0.3227,
+  "auc_vs_baseline": 0.0587,
+  "baseline_auc": 0.7232,
+  "lift_ci_low": 0.0408,
+  "lift_ci_high": 0.0776,
+  "positive_rate_val": 0.22,
+  "n_val_samples": 3000,
+  "eval_timestamp": "2026-10-17T17:22:53.390131"
+}

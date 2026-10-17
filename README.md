@@ -95,6 +95,7 @@ python evaluation_harness.py
 Copy the final CSV to `docs/lab3-evidence/rag_eval.csv`. The RAG pipeline is in `rag/offer_pipeline.py` (FAISS, Titan Embeddings v2, Claude Haiku 4.5 via Bedrock).
 
 ### Where artifacts land
+- 'track-b-evaluation.md'
 - `docs/lab3-evidence/`: `train-final.log`, `evaluation_metrics.json`, `slice-evaluation.csv`, `confusion-matrix.png`, `feature-importance.png`, plus the AWS exports from the evidence script, `rag_eval.csv` and `track-b-examples.md`.
 - `docs/lab3-evaluation-report.md`, `docs/lab3-model-design.md`.
 - Model tarball: `s3://<bucket>/artifacts/models/<timestamp>/model.tar.gz`; registry group `northstar-churn-models`.

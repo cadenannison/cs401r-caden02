@@ -375,3 +375,7 @@ class TestFullFeatureSet:
             snapshot_date=SNAPSHOT_DATE,
         )
         assert "customer_id" in features.columns, "Output must include customer_id for joining"
+
+
+def test_deliberate_failure_for_lab4_demo():
+    assert False, "LAB4 DELIBERATE FAILURE: demonstrating the pipeline halts in PRE_BUILD"

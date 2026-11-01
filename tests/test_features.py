@@ -22,18 +22,9 @@ import pandas as pd
 import pytest
 
 # ── Import your feature engineering module ─────────────────────────────────────
-# Lab 2 implements feature engineering in PySpark (glue-scripts/feature_engineer.py),
-# which is awkward to unit test. For Lab 4 you extract the pure computation logic into
-# testable functions in data/feature_engineering.py that operate on pandas DataFrames,
-# then have the Glue job and these tests share that logic.
-#
-# Your pandas functions must compute EXACTLY what your Glue job computes --
-# same windows (purchase_date > T - N days), same definitions. In particular,
-# avg_basket_size_6m is ITEMS per order over 180 days (Lab 2 schema), not
-# dollars. Check the port against your Glue output on the full dataset.
-#
-# That refactor IS the assignment here: code you cannot test in isolation is code you
-# cannot gate a pipeline on.
+# Lab 2's feature logic lives in PySpark (glue-scripts/feature_engineer.py).
+# data/feature_engineering.py is a pandas port of it with the same windows and
+# definitions, so it can be unit tested in isolation.
 try:
     from data.feature_engineering import (
         compute_recency_features,
@@ -306,16 +297,13 @@ class TestBehavioralFeatures:
         cust3 = features[features["customer_id"] == "CUST-10000003"].iloc[0]
         # Customer 3 bought four of the eight categories: 4 / 8 = 0.5
         assert cust3["category_diversity_score"] > 0.3, (
-            f"Multi-category buyer should have higher diversity"
+            "Multi-category buyer should have higher diversity"
         )
 
 
     def test_online_to_store_ratio_non_negative(self, sample_transactions):
         features = compute_behavioral_features(sample_transactions)
         assert (features["online_to_store_ratio"] >= 0).all()
-
-
-# ── Engagement Feature Tests ───────────────────────────────────────────────────
 
 
 class TestFullFeatureSet:

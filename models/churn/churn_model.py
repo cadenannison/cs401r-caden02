@@ -1,46 +1,4 @@
-"""Your Lab 3 churn model, packaged for the Lab 4 pipeline.
-
-YOU WRITE THIS FILE. The pipeline's training job runs train_sagemaker.py
-(beside this file; do not edit it), which imports this module and calls
-train(). Everything the job needs from you goes through the three names below.
-
-Contract (train_sagemaker.py checks it in the first seconds of the job):
-
-    FEATURE_COLUMNS   list[str]   model input columns, in order
-    LABEL             str         "churn_label"
-    train(df, seed=42) -> (xgboost.Booster, dict)
-
-`df` is the full labeled feature table: every column of your Lab 2 output,
-including `loyalty_tier` for slice evaluation. It is already loaded. Do not
-query Athena or the Feature Store from here; the training container stages
-the data for you and has no business making service calls for its input.
-
-The metrics dict must include the four numbers the CI gate in
-tests/test_model.py reads. Your Lab 3 evaluate_model() already returns them:
-
-    precision_top10, recall_top10      gated at 0.50 / 0.25
-    lift_ci_low, lift_ci_high          bootstrap 95% CI on AUC lift over the
-                                       recency-only baseline; lift_ci_low > 0
-
-Include anything else you reported in Lab 3 (auc_roc, baseline_auc,
-positive_rate_val, slice results). It is all written to evaluation_metrics.json
-and attached to the registered model.
-
-What runs in the container: the SageMaker XGBoost 1.7-1 image ships pandas,
-numpy, scikit-learn, xgboost and boto3. It does NOT ship mlflow or sagemaker,
-so do not import them at the top of this file. MLflow tracking stays in your
-Lab 3 script.
-
-Only this directory (models/churn/) is uploaded to the training job, so the
-code must live here. `import churn_training_skeleton` will fail inside the
-container even though it works on your laptop. Copy the functions you need.
-
-Test it locally before pushing:
-
-    python models/churn/train_sagemaker.py \
-        --train-channel <dir containing your features CSV or Parquet> \
-        --model-dir /tmp/model --output-data-dir /tmp/out
-"""
+"""Lab 3 churn model packaged for the Lab 4 pipeline. train_sagemaker.py imports this module and calls train(df, seed) -> (booster, metrics). Only models/churn/ is uploaded to the training container, so this file must not import mlflow or sagemaker at the top level."""
 
 # Keeps Lab 3 annotations like `-> tuple[np.ndarray, np.ndarray]` from being
 # evaluated, whatever Python the training container runs.

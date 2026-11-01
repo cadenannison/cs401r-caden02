@@ -1,0 +1,84 @@
+
+===== BEFORE  (2026-10-30T18:45:53Z) =====
+--- newest CodeBuild build: id, commit, status, then phases
+northstar-ci:848aa0fc-1082-4ed0-9726-9fce6b9e8f56	9bcc2ce7dae19f3fd3ad4cdb7706d8c5f8506bc3	SUCCEEDED
+SUBMITTED	SUCCEEDED
+QUEUED	SUCCEEDED
+PROVISIONING	SUCCEEDED
+DOWNLOAD_SOURCE	SUCCEEDED
+INSTALL	SUCCEEDED
+PRE_BUILD	SUCCEEDED
+BUILD	SUCCEEDED
+POST_BUILD	SUCCEEDED
+UPLOAD_ARTIFACTS	SUCCEEDED
+FINALIZING	SUCCEEDED
+COMPLETED	None
+--- newest 3 model packages
+3	PendingManualApproval	2026-10-30T12:38:13.094000-06:00
+2	Approved	2026-10-30T12:25:55.138000-06:00
+1	PendingManualApproval	2026-10-17T11:22:57.411000-06:00
+--- alarm state
+OK	2026-10-30T12:39:41.514000-06:00
+--- alarm action history
+2026-10-30T12:39:41.549000-06:00	Successfully executed action arn:aws:sns:us-east-1:338658063899:northstar-model-approvals
+2026-10-30T12:27:41.560000-06:00	Successfully executed action arn:aws:sns:us-east-1:338658063899:northstar-model-approvals
+2026-10-30T12:18:41.571000-06:00	Successfully executed action arn:aws:sns:us-east-1:338658063899:northstar-model-approvals
+2026-10-30T12:03:41.560000-06:00	Successfully executed action arn:aws:sns:us-east-1:338658063899:northstar-model-approvals
+2026-10-30T11:57:41.555000-06:00	Successfully executed action arn:aws:sns:us-east-1:338658063899:northstar-model-approvals
+--- SNS subscriptions (an ARN, not PendingConfirmation)
+email	arn:aws:sns:us-east-1:338658063899:northstar-model-approvals:f4e7eceb-9c81-4d2e-a537-fae1d31bdbd1
+
+===== AFTER FAILED RUN  (2026-10-30T18:50:32Z) =====
+--- newest CodeBuild build: id, commit, status, then phases
+northstar-ci:2c60465e-5884-4bde-82b1-c9956558b360	d61f1aeabf53e706de9f72b4772b0931f01e9fdb	FAILED
+SUBMITTED	SUCCEEDED
+QUEUED	SUCCEEDED
+PROVISIONING	SUCCEEDED
+DOWNLOAD_SOURCE	SUCCEEDED
+INSTALL	SUCCEEDED
+PRE_BUILD	FAILED
+FINALIZING	SUCCEEDED
+COMPLETED	None
+--- newest 3 model packages
+3	PendingManualApproval	2026-10-30T12:38:13.094000-06:00
+2	Approved	2026-10-30T12:25:55.138000-06:00
+1	PendingManualApproval	2026-10-17T11:22:57.411000-06:00
+--- alarm state
+ALARM	2026-10-30T12:49:41.515000-06:00
+--- alarm action history
+2026-10-30T12:49:41.562000-06:00	Successfully executed action arn:aws:sns:us-east-1:338658063899:northstar-model-approvals
+2026-10-30T12:39:41.549000-06:00	Successfully executed action arn:aws:sns:us-east-1:338658063899:northstar-model-approvals
+2026-10-30T12:27:41.560000-06:00	Successfully executed action arn:aws:sns:us-east-1:338658063899:northstar-model-approvals
+2026-10-30T12:18:41.571000-06:00	Successfully executed action arn:aws:sns:us-east-1:338658063899:northstar-model-approvals
+2026-10-30T12:03:41.560000-06:00	Successfully executed action arn:aws:sns:us-east-1:338658063899:northstar-model-approvals
+--- SNS subscriptions (an ARN, not PendingConfirmation)
+email	arn:aws:sns:us-east-1:338658063899:northstar-model-approvals:f4e7eceb-9c81-4d2e-a537-fae1d31bdbd1
+
+===== AFTER REVERT  (2026-10-30T19:25:44Z) =====
+--- newest CodeBuild build: id, commit, status, then phases
+northstar-ci:d9c00220-3923-4e7c-aa65-b3d1876a3f4a	734b76636dc343aca888ab19b9c3a0bc17189f98	SUCCEEDED
+SUBMITTED	SUCCEEDED
+QUEUED	SUCCEEDED
+PROVISIONING	SUCCEEDED
+DOWNLOAD_SOURCE	SUCCEEDED
+INSTALL	SUCCEEDED
+PRE_BUILD	SUCCEEDED
+BUILD	SUCCEEDED
+POST_BUILD	SUCCEEDED
+UPLOAD_ARTIFACTS	SUCCEEDED
+FINALIZING	SUCCEEDED
+COMPLETED	None
+--- newest 3 model packages
+4	PendingManualApproval	2026-10-30T13:24:18.994000-06:00
+3	PendingManualApproval	2026-10-30T12:38:13.094000-06:00
+2	Approved	2026-10-30T12:25:55.138000-06:00
+--- alarm state
+OK	2026-10-30T13:04:41.515000-06:00
+--- alarm action history
+2026-10-30T13:04:41.565000-06:00	Successfully executed action arn:aws:sns:us-east-1:338658063899:northstar-model-approvals
+2026-10-30T12:49:41.562000-06:00	Successfully executed action arn:aws:sns:us-east-1:338658063899:northstar-model-approvals
+2026-10-30T12:39:41.549000-06:00	Successfully executed action arn:aws:sns:us-east-1:338658063899:northstar-model-approvals
+2026-10-30T12:27:41.560000-06:00	Successfully executed action arn:aws:sns:us-east-1:338658063899:northstar-model-approvals
+2026-10-30T12:18:41.571000-06:00	Successfully executed action arn:aws:sns:us-east-1:338658063899:northstar-model-approvals
+--- SNS subscriptions (an ARN, not PendingConfirmation)
+email	arn:aws:sns:us-east-1:338658063899:northstar-model-approvals:f4e7eceb-9c81-4d2e-a537-fae1d31bdbd1

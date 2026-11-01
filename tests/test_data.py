@@ -12,7 +12,7 @@ These run in the CodeBuild pre_build phase and MUST pass before any model
 training is triggered.
 
 Run locally:
-    export NORTHSTAR_RAW=./data/northstar-raw-sample.csv
+    export NORTHSTAR_RAW=./northstar-raw-sample.csv
     export NORTHSTAR_PROCESSED=./data/processed
     export NORTHSTAR_FEATURES=./data/features
     pytest tests/test_data.py -v
@@ -49,7 +49,7 @@ from data.feature_engineering import (
 
 # ── Configuration ─────────────────────────────────────────────────────────────
 
-RAW_PATH = os.environ.get("NORTHSTAR_RAW", "./data/northstar-raw-sample.csv")
+RAW_PATH = os.environ.get("NORTHSTAR_RAW", "./northstar-raw-sample.csv")
 PROCESSED_DIR = os.environ.get("NORTHSTAR_PROCESSED", "./data/processed")
 FEATURES_DIR = os.environ.get("NORTHSTAR_FEATURES", "./data/features")
 

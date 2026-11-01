@@ -100,3 +100,14 @@ Copy the final CSV to `docs/lab3-evidence/rag_eval.csv`. The RAG pipeline is in 
 - `docs/lab3-evaluation-report.md`, `docs/lab3-model-design.md`.
 - Model tarball: `s3://<bucket>/artifacts/models/<timestamp>/model.tar.gz`; registry group `northstar-churn-models`.
 - MLflow runs: experiment `northstar-churn` in the `northstar-mlflow` App.
+
+## Lab 4 — CI/CD & XOps
+
+- `buildspec.yml` and `pipeline.yaml`: the CodePipeline/CodeBuild CI stack.
+- `tests/`: data, feature, model and fairness tests.
+- `data/feature_engineering.py`: pandas port of the Lab 2 features.
+- `models/churn/`: `train()` and the SageMaker pipeline definition.
+- `scripts/lab4_mlflow_sweep.py`: MLflow hyperparameter comparison runs.
+- `docs/lab4-xops-assessment.md` and the `docs/lab4-*` evidence files.
+
+CI runs the tests on every push and a manual approval gates promotion of new model packages. Evidence logs and registry exports are in `docs/`.

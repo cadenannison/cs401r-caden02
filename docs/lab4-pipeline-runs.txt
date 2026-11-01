@@ -1,0 +1,84 @@
+===== CodePipeline executions: start, status, commit, execution id =====
+2026-10-30T13:19:25.412000-06:00	InProgress	734b76636dc343aca888ab19b9c3a0bc17189f98	e505acf3-fed2-49f3-9843-c7f77d4a8cca
+2026-10-30T12:46:48.210000-06:00	Failed	d61f1aeabf53e706de9f72b4772b0931f01e9fdb	8b2e1e85-9038-47c0-a404-c9ef57355d11
+2026-10-30T12:33:34.216000-06:00	InProgress	9bcc2ce7dae19f3fd3ad4cdb7706d8c5f8506bc3	b11135f5-880a-4be8-b9bb-c79571e512e1
+2026-10-30T12:21:04.706000-06:00	Failed	fac3c968df51a1c395fa9e117aee2dd12c36efa0	56d0d0a8-1833-4eff-a400-7dfc94938a32
+2026-10-30T11:56:31.903000-06:00	Failed	534c87ff64dd952c83d1a619feedb6c5c4cab6ba	b58fe968-7fa8-46d7-91fc-3a26997845ec
+
+===== CodeBuild builds, newest first: start, status, commit, build id =====
+2026-10-30T13:19:37.979000-06:00	SUCCEEDED	734b76636dc343aca888ab19b9c3a0bc17189f98	northstar-ci:d9c00220-3923-4e7c-aa65-b3d1876a3f4a
+    SUBMITTED	SUCCEEDED
+    QUEUED	SUCCEEDED
+    PROVISIONING	SUCCEEDED
+    DOWNLOAD_SOURCE	SUCCEEDED
+    INSTALL	SUCCEEDED
+    PRE_BUILD	SUCCEEDED
+    BUILD	SUCCEEDED
+    POST_BUILD	SUCCEEDED
+    UPLOAD_ARTIFACTS	SUCCEEDED
+    FINALIZING	SUCCEEDED
+    COMPLETED	None
+    pytest: ============================== 28 passed in 0.90s ==============================
+    pytest: ============================== 23 passed in 0.47s ==============================
+    pytest: ======================== 21 passed, 4 warnings in 1.41s ========================
+2026-10-30T12:46:57.615000-06:00	FAILED	d61f1aeabf53e706de9f72b4772b0931f01e9fdb	northstar-ci:2c60465e-5884-4bde-82b1-c9956558b360
+    SUBMITTED	SUCCEEDED
+    QUEUED	SUCCEEDED
+    PROVISIONING	SUCCEEDED
+    DOWNLOAD_SOURCE	SUCCEEDED
+    INSTALL	SUCCEEDED
+    PRE_BUILD	FAILED
+    FINALIZING	SUCCEEDED
+    COMPLETED	None
+    pytest: ============================== 28 passed in 0.97s ==============================
+    pytest: ========================= 1 failed, 23 passed in 0.65s =========================
+2026-10-30T12:34:07.971000-06:00	SUCCEEDED	9bcc2ce7dae19f3fd3ad4cdb7706d8c5f8506bc3	northstar-ci:848aa0fc-1082-4ed0-9726-9fce6b9e8f56
+    SUBMITTED	SUCCEEDED
+    QUEUED	SUCCEEDED
+    PROVISIONING	SUCCEEDED
+    DOWNLOAD_SOURCE	SUCCEEDED
+    INSTALL	SUCCEEDED
+    PRE_BUILD	SUCCEEDED
+    BUILD	SUCCEEDED
+    POST_BUILD	SUCCEEDED
+    UPLOAD_ARTIFACTS	SUCCEEDED
+    FINALIZING	SUCCEEDED
+    COMPLETED	None
+    pytest: ============================== 28 passed in 0.59s ==============================
+    pytest: ============================== 23 passed in 0.54s ==============================
+    pytest: ======================== 21 passed, 4 warnings in 1.57s ========================
+2026-10-30T12:21:14.330000-06:00	FAILED	fac3c968df51a1c395fa9e117aee2dd12c36efa0	northstar-ci:b792f218-495d-407e-8653-124206e09d28
+    SUBMITTED	SUCCEEDED
+    QUEUED	SUCCEEDED
+    PROVISIONING	SUCCEEDED
+    DOWNLOAD_SOURCE	SUCCEEDED
+    INSTALL	SUCCEEDED
+    PRE_BUILD	SUCCEEDED
+    BUILD	FAILED
+    POST_BUILD	SUCCEEDED
+    UPLOAD_ARTIFACTS	SUCCEEDED
+    FINALIZING	SUCCEEDED
+    COMPLETED	None
+    pytest: ============================== 28 passed in 1.02s ==============================
+    pytest: ============================== 23 passed in 0.54s ==============================
+    pytest: =================== 2 failed, 19 passed, 3 warnings in 1.51s ===================
+2026-10-30T11:56:54.683000-06:00	FAILED	534c87ff64dd952c83d1a619feedb6c5c4cab6ba	northstar-ci:7c9e97f7-92c8-4b39-a276-413e8e617cc2
+    SUBMITTED	SUCCEEDED
+    QUEUED	SUCCEEDED
+    PROVISIONING	SUCCEEDED
+    DOWNLOAD_SOURCE	SUCCEEDED
+    INSTALL	SUCCEEDED
+    PRE_BUILD	SUCCEEDED
+    BUILD	FAILED
+    POST_BUILD	SUCCEEDED
+    UPLOAD_ARTIFACTS	SUCCEEDED
+    FINALIZING	SUCCEEDED
+    COMPLETED	None
+    pytest: ============================== 28 passed in 0.98s ==============================
+    pytest: ============================== 23 passed in 0.57s ==============================
+
+===== SageMaker Pipeline executions: start, status, name =====
+2026-10-30T13:21:02.305000-06:00	Succeeded	codebuild-734b7663
+2026-10-30T12:34:59.268000-06:00	Succeeded	codebuild-9bcc2ce7
+2026-10-30T12:22:44.386000-06:00	Succeeded	codebuild-fac3c968
+2026-10-30T11:58:22.628000-06:00	Failed	codebuild-534c87ff

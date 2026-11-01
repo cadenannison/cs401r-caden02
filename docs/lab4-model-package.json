@@ -1,0 +1,76 @@
+{
+    "ModelPackageGroupName": "northstar-churn-models",
+    "ModelPackageVersion": 4,
+    "ModelPackageRegistrationType": "Registered",
+    "ModelPackageArn": "arn:aws:sagemaker:us-east-1:338658063899:model-package/northstar-churn-models/4",
+    "CreationTime": "2026-10-30T13:24:18.994000-06:00",
+    "InferenceSpecification": {
+        "Containers": [
+            {
+                "Image": "683313688378.dkr.ecr.us-east-1.amazonaws.com/sagemaker-xgboost:1.7-1",
+                "ImageDigest": "sha256:b4f13edb198529c460692015797fa1ca6a8ff1ed64a149297174d922121b8fc4",
+                "ModelDataUrl": "s3://northstar-dev-data-338658063899/artifacts/training/pipelines-m5olcygs035c-TrainChurnModel-7LKaQJVkfF/output/model.tar.gz",
+                "ModelDataETag": "42b642765edb23ffeb1baf41e676dd28",
+                "IsCheckpoint": false
+            }
+        ],
+        "SupportedTransformInstanceTypes": [
+            "ml.m5.large"
+        ],
+        "SupportedRealtimeInferenceInstanceTypes": [
+            "ml.m5.large",
+            "ml.t2.medium"
+        ],
+        "SupportedContentTypes": [
+            "text/csv"
+        ],
+        "SupportedResponseMIMETypes": [
+            "text/csv"
+        ]
+    },
+    "ModelPackageStatus": "Completed",
+    "ModelPackageStatusDetails": {
+        "ValidationStatuses": [],
+        "ImageScanStatuses": []
+    },
+    "CertifyForMarketplace": false,
+    "ModelApprovalStatus": "PendingManualApproval",
+    "CreatedBy": {
+        "IamIdentity": {
+            "Arn": "arn:aws:sts::338658063899:assumed-role/northstar-dev-MLEngineer/sagemaker-pipeline-m5olcygs035c-RegisterChurnModel-R",
+            "PrincipalId": "AROAU5WMX6YNULLBJ2BWK:sagemaker-pipeline-m5olcygs035c-RegisterChurnModel-R"
+        }
+    },
+    "MetadataProperties": {
+        "GeneratedBy": "arn:aws:sagemaker:us-east-1:338658063899:pipeline/northstar-churn-pipeline/execution/m5olcygs035c"
+    },
+    "ModelMetrics": {
+        "ModelQuality": {
+            "Statistics": {
+                "ContentType": "application/json",
+                "S3Uri": "s3://northstar-dev-data-338658063899/artifacts/evaluations/734b7663/evaluation_metrics.json"
+            }
+        },
+        "Bias": {},
+        "Explainability": {}
+    },
+    "LastModifiedTime": "2026-10-30T13:27:12.400000-06:00",
+    "LastModifiedBy": {
+        "IamIdentity": {
+            "Arn": "arn:aws:iam::338658063899:root",
+            "PrincipalId": "338658063899"
+        }
+    },
+    "CustomerMetadataProperties": {
+        "auc_roc": "0.7861",
+        "baseline_auc_roc": "0.7208",
+        "commit_sha": "734b76636dc343aca888ab19b9c3a0bc17189f98",
+        "lift_ci_high": "0.0845",
+        "lift_ci_low": "0.0472",
+        "precision_top10": "0.73",
+        "recall_top10": "0.3318",
+        "training_data_timestamp": "2026-10-30T17:38:09+00:00",
+        "training_data_uri": "s3://northstar-dev-data-338658063899/features/customers/"
+    },
+    "SkipModelValidation": "None"
+}
